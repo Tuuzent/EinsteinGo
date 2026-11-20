@@ -1,4 +1,4 @@
-# EinsteinGo · 爱恩斯坦棋（Einstein würfelt nicht）博弈引擎
+# EinsteinGo · 爱因斯坦棋（Einstein würfelt nicht）博弈程序
 
 纯 Python 3 标准库实现，零第三方依赖。支持**桌面界面（双击 `start_ui.bat` 即开）**、
 命令行对局、自对弈基准，以及
