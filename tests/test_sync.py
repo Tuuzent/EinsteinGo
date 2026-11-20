@@ -4,14 +4,14 @@ from __future__ import annotations
 
 import pytest
 
-from einstein.constants import BLUE, RED, parse_sq
-from einstein.errors import EngineError, ErrorCode
-from einstein.move import Move
-from einstein.movegen import generate_moves
-from einstein.outcome import GameResult, TerminalReason
-from einstein.protocol import chain_step
-from einstein.state import GameState, initial_position
-from einstein.sync import (
+from einstein_go.constants import BLUE, RED, parse_sq
+from einstein_go.errors import EngineError, ErrorCode
+from einstein_go.move import Move
+from einstein_go.movegen import generate_moves
+from einstein_go.outcome import GameResult, TerminalReason
+from einstein_go.protocol import chain_step
+from einstein_go.state import GameState, initial_position
+from einstein_go.sync import (
     SyncMode,
     _post_checks,
     apply_remote_move,
@@ -229,7 +229,7 @@ def test_sync_report_contains_hashes():
 
 # ---------------------------------------------------------------- 哈希链
 def test_hash_chain_detects_tampering():
-    from einstein.sync import replay
+    from einstein_go.sync import replay
 
     s = play_random_game(seed=13)
     rows = s.record()

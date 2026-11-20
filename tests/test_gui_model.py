@@ -6,9 +6,9 @@ from dataclasses import replace
 
 import pytest
 
-from einstein.config import SearchConfig
-from einstein.constants import BLUE, BLUE_HOME, CORNER, RED, RED_HOME, parse_sq
-from einstein.gui.model import (
+from einstein_go.config import SearchConfig
+from einstein_go.constants import BLUE, BLUE_HOME, CORNER, RED, RED_HOME, parse_sq
+from einstein_go.gui.model import (
     DIFFICULTY_ORDER,
     DIFFICULTY_SPEC,
     GameSetup,
@@ -17,7 +17,7 @@ from einstein.gui.model import (
     build_cells,
     resolve_config,
 )
-from einstein.state import initial_position
+from einstein_go.state import initial_position
 from helpers import build_pos
 
 

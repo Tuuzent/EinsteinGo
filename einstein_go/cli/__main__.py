@@ -1,4 +1,4 @@
-"""允许 ``python -m einstein.cli ...``。"""
+"""允许 ``python -m einstein_go.cli ...``。"""
 
 from __future__ import annotations
 

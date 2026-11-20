@@ -24,7 +24,7 @@ class App(tk.Tk):
     def __init__(self, controller: GameController | None = None) -> None:
         super().__init__()
         self.theme = T.Theme(self)
-        self.title("爱恩斯坦棋 · Einstein würfelt nicht")
+        self.title("EinsteinGo · 爱恩斯坦棋（Einstein würfelt nicht）")
         self.geometry(f"{T.WIN_W}x{T.WIN_H}")
         self.minsize(T.MIN_W, T.MIN_H)
         self.configure(bg=T.WINDOW_BG)

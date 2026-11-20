@@ -4,8 +4,8 @@ from __future__ import annotations
 
 import pytest
 
-from einstein.board import render_squares, to_rows
-from einstein.constants import (
+from einstein_go.board import render_squares, to_rows
+from einstein_go.constants import (
     BLUE_HOME,
     CORNER,
     DELTAS,
@@ -20,7 +20,7 @@ from einstein.constants import (
     rc,
     sq_name,
 )
-from einstein.state import initial_position, rot180
+from einstein_go.state import initial_position, rot180
 
 
 def test_board_shape():

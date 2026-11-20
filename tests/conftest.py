@@ -17,14 +17,14 @@ def pos_factory():
 
 @pytest.fixture
 def start_pos():
-    from einstein.state import initial_position
+    from einstein_go.state import initial_position
 
     return initial_position()
 
 
 @pytest.fixture
 def fake_time():
-    from einstein.clock import FakeTime
+    from einstein_go.clock import FakeTime
 
     return FakeTime()
 

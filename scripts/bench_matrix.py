@@ -20,10 +20,10 @@ from pathlib import Path
 if __package__ in (None, ""):
     sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
-from einstein.clock import VirtualTime
-from einstein.constants import RED
-from einstein.players import make_player
-from einstein.session import GameSession
+from einstein_go.clock import VirtualTime
+from einstein_go.constants import RED
+from einstein_go.players import make_player
+from einstein_go.session import GameSession
 
 
 @dataclass

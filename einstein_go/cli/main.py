@@ -1,11 +1,11 @@
 """命令行入口。
 
-    python -m einstein.cli play  --red human --blue mcts --nodes 800
-    python -m einstein.cli play  --red human --blue human          # 双人热座
-    python -m einstein.cli play  --red mcts  --blue heuristic
-    python -m einstein.cli match --a mcts --b heuristic --games 7
-    python -m einstein.cli replay 棋谱.jsonl
-    python -m einstein.cli demo
+    python -m einstein_go.cli play  --red human --blue mcts --nodes 800
+    python -m einstein_go.cli play  --red human --blue human          # 双人热座
+    python -m einstein_go.cli play  --red mcts  --blue heuristic
+    python -m einstein_go.cli match --a mcts --b heuristic --games 7
+    python -m einstein_go.cli replay 棋谱.jsonl
+    python -m einstein_go.cli demo
 """
 
 from __future__ import annotations
@@ -106,7 +106,7 @@ def cmd_remote(args) -> int:
 
 
 def build_parser() -> argparse.ArgumentParser:
-    p = argparse.ArgumentParser(prog="einstein", description="爱恩斯坦棋（Einstein würfelt nicht）博弈引擎")
+    p = argparse.ArgumentParser(prog="einstein-go", description="EinsteinGo · 爱恩斯坦棋（Einstein würfelt nicht）博弈引擎")
     sub = p.add_subparsers(dest="cmd", required=True)
 
     def common(sp):

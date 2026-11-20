@@ -4,9 +4,9 @@ from __future__ import annotations
 
 import pytest
 
-from einstein.constants import parse_sq, sq_name
-from einstein.errors import EngineError, ErrorCode
-from einstein.move import Move, MoveIntent, parse_move_json, parse_move_text
+from einstein_go.constants import parse_sq, sq_name
+from einstein_go.errors import EngineError, ErrorCode
+from einstein_go.move import Move, MoveIntent, parse_move_json, parse_move_text
 
 
 @pytest.mark.parametrize("text", ["4a1-b1@3", "4a1b1@3", "4a1>b1@3", " 4 a1 - b1 @ 3 "])

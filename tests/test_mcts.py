@@ -4,7 +4,7 @@ from __future__ import annotations
 
 import pytest
 
-from einstein.ai.mcts import (
+from einstein_go.ai.mcts import (
     CHANCE,
     DECISION,
     Budget,
@@ -16,11 +16,11 @@ from einstein.ai.mcts import (
     compute_priors,
     search,
 )
-from einstein.config import SearchConfig
-from einstein.constants import BLUE, RED, parse_sq, sq_name
-from einstein.errors import EngineError, ErrorCode
-from einstein.movegen import generate_moves, resolve_candidates
-from einstein.transition import apply
+from einstein_go.config import SearchConfig
+from einstein_go.constants import BLUE, RED, parse_sq, sq_name
+from einstein_go.errors import EngineError, ErrorCode
+from einstein_go.movegen import generate_moves, resolve_candidates
+from einstein_go.transition import apply
 from helpers import build_pos, random_positions
 
 
@@ -131,7 +131,7 @@ def test_terminal_value_sign():
     """走完一手即胜时，子节点（属于对手视角）的终局值必须是 -1。"""
     pos = build_pos(red={1: "d5"}, blue={2: "c1"}, side=RED, die=1)
     root = Node(pos, pos.side, None, DECISION, +1, 1.0, None, 0)
-    from einstein.ai.mcts import _expand
+    from einstein_go.ai.mcts import _expand
 
     _expand(root, FAST)
     won = [c for c in root.children if c.terminal_value is not None]
@@ -161,7 +161,7 @@ def test_chance_node_visits_sum_to_parent():
     search(pos, Budget(5_000, cfg), cfg)
     # 无法直接拿根，改为验证概率守恒：重新构造一次并手动展开
     root = Node(pos, pos.side, None, DECISION, +1, 1.0, None, 0)
-    from einstein.ai.mcts import _expand
+    from einstein_go.ai.mcts import _expand
 
     _expand(root, cfg)
     for chance_child in root.children:
@@ -182,7 +182,7 @@ def test_priors_normalized_and_ordered():
 
 
 def test_select_final_prefers_more_visits():
-    from einstein.ai.mcts import _select_final
+    from einstein_go.ai.mcts import _select_final
 
     root = Node(None, RED, None, DECISION, +1, 1.0, None, 0)
     a = Node(None, BLUE, root, CHANCE, -1, 0.5, None, 1)
@@ -207,7 +207,7 @@ def test_apply_matches_search_child_positions():
     """搜索树里 Chance 子节点的局面 = apply 后的局面（防止虚拟骰写错）。"""
     pos = build_pos(red={1: "c3"}, blue={1: "d4"}, side=RED, die=1)
     root = Node(pos, pos.side, None, DECISION, +1, 1.0, None, 0)
-    from einstein.ai.mcts import _expand
+    from einstein_go.ai.mcts import _expand
 
     _expand(root, FAST)
     for child in root.children:

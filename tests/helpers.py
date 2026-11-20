@@ -10,11 +10,11 @@ ROOT = Path(__file__).resolve().parent.parent
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
-from einstein.constants import RED, parse_sq  # noqa: E402
-from einstein.movegen import generate_moves  # noqa: E402
-from einstein.session import GameSession  # noqa: E402
-from einstein.state import Position  # noqa: E402
-from einstein.transition import apply  # noqa: E402
+from einstein_go.constants import RED, parse_sq  # noqa: E402
+from einstein_go.movegen import generate_moves  # noqa: E402
+from einstein_go.session import GameSession  # noqa: E402
+from einstein_go.state import Position  # noqa: E402
+from einstein_go.transition import apply  # noqa: E402
 
 
 def build_pos(red: dict[int, str] | None = None, blue: dict[int, str] | None = None,

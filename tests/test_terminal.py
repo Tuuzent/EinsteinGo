@@ -4,14 +4,14 @@ from __future__ import annotations
 
 import pytest
 
-from einstein.constants import parse_sq
-from einstein.errors import EngineError, ErrorCode
-from einstein.movegen import generate_moves
-from einstein.outcome import GameResult, TerminalReason
-from einstein.session import GameSession
-from einstein.state import initial_position
-from einstein.terminal import adjudicate, is_terminal, terminal_after, winner_by_flag
-from einstein.transition import apply
+from einstein_go.constants import parse_sq
+from einstein_go.errors import EngineError, ErrorCode
+from einstein_go.movegen import generate_moves
+from einstein_go.outcome import GameResult, TerminalReason
+from einstein_go.session import GameSession
+from einstein_go.state import initial_position
+from einstein_go.terminal import adjudicate, is_terminal, terminal_after, winner_by_flag
+from einstein_go.transition import apply
 from helpers import build_pos, play_random_game
 
 

@@ -16,12 +16,12 @@ ROOT = Path(__file__).resolve().parent.parent
 
 GUARD_SNIPPET = """
 import sys
-import einstein.gui.controller
-import einstein.gui.model
-import einstein.gui.errors_view
-import einstein.gui.thinker
-import einstein.gui.record_io
-import einstein.gui.logbus
+import einstein_go.gui.controller
+import einstein_go.gui.model
+import einstein_go.gui.errors_view
+import einstein_go.gui.thinker
+import einstein_go.gui.record_io
+import einstein_go.gui.logbus
 bad = sorted(m for m in sys.modules if m.split('.')[0] in ('tkinter', '_tkinter'))
 assert not bad, bad
 print('TK-FREE-OK')
@@ -38,9 +38,9 @@ def test_controller_chain_is_tk_free():
 
 
 def test_gui_package_init_only_documents():
-    text = (ROOT / "einstein" / "gui" / "__init__.py").read_text(encoding="utf-8")
-    for forbidden in ("import tkinter", "from .view", "from einstein.gui.view", "import .view"):
-        assert forbidden not in text, f"einstein/gui/__init__.py 不允许出现 {forbidden!r}"
+    text = (ROOT / "einstein_go" / "gui" / "__init__.py").read_text(encoding="utf-8")
+    for forbidden in ("import tkinter", "from .view", "from einstein_go.gui.view", "import .view"):
+        assert forbidden not in text, f"einstein_go/gui/__init__.py 不允许出现 {forbidden!r}"
 
 
 def test_view_subpackage_is_separate():
@@ -50,10 +50,10 @@ def test_view_subpackage_is_separate():
     """
     for name in ("controller.py", "model.py", "errors_view.py", "thinker.py", "record_io.py", "logbus.py"):
         for lineno, line in enumerate(
-            (ROOT / "einstein" / "gui" / name).read_text(encoding="utf-8").splitlines(), 1
+            (ROOT / "einstein_go" / "gui" / name).read_text(encoding="utf-8").splitlines(), 1
         ):
             stmt = line.strip()
             if stmt.startswith(("import tkinter", "from tkinter")):
                 pytest.fail(f"{name}:{lineno} 引入了 tkinter：{stmt}")
-            if stmt.startswith(("from .view", "import .view", "from einstein.gui.view")):
+            if stmt.startswith(("from .view", "import .view", "from einstein_go.gui.view")):
                 pytest.fail(f"{name}:{lineno} 反向依赖视图层：{stmt}")

@@ -4,8 +4,8 @@ from __future__ import annotations
 
 import pytest
 
-from einstein.constants import RED
-from einstein.match import (
+from einstein_go.constants import RED
+from einstein_go.match import (
     FIRST_PLAYER_OF_GAME,
     A,
     B,
@@ -13,7 +13,7 @@ from einstein.match import (
     Match,
     make_record,
 )
-from einstein.outcome import GameResult, TerminalReason
+from einstein_go.outcome import GameResult, TerminalReason
 
 
 def fake_runner(pattern: str):

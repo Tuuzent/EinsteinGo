@@ -407,7 +407,7 @@ class GameController:
         worker = threading.Thread(
             target=_worker,
             args=(token, self._thinker, pos, ms, cfg, ply, cancel, self._queue),
-            name=f"einstein-mcts-{token}",
+            name=f"einstein-go-mcts-{token}",
             daemon=True,
         )
         self._thread = worker

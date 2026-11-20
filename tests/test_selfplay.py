@@ -4,11 +4,11 @@ from __future__ import annotations
 
 import pytest
 
-from einstein.clock import VirtualTime
-from einstein.constants import RED
-from einstein.players import make_player, play_out
-from einstein.session import GameSession
-from einstein.sync import replay, verify_state_equal
+from einstein_go.clock import VirtualTime
+from einstein_go.constants import RED
+from einstein_go.players import make_player, play_out
+from einstein_go.session import GameSession
+from einstein_go.sync import replay, verify_state_equal
 
 
 def _play(spec_a: str, spec_b: str, games: int, nodes: int, seed: int = 7):

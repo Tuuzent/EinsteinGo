@@ -4,11 +4,11 @@ from __future__ import annotations
 
 import pytest
 
-from einstein.constants import CORNER, parse_sq
-from einstein.movegen import generate_moves
-from einstein.state import Position, canonical, check_alive_consistency, initial_position
-from einstein.transition import ScratchBoard, apply, pass_turn, switch_turn
-from einstein.zobrist import full_hash
+from einstein_go.constants import CORNER, parse_sq
+from einstein_go.movegen import generate_moves
+from einstein_go.state import Position, canonical, check_alive_consistency, initial_position
+from einstein_go.transition import ScratchBoard, apply, pass_turn, switch_turn
+from einstein_go.zobrist import full_hash
 from helpers import build_pos, play_random_game, random_positions
 
 
@@ -140,7 +140,7 @@ def test_scratchboard_winner():
 
 
 def test_apply_rejects_illegal():
-    from einstein.move import Move
+    from einstein_go.move import Move
 
     pos = build_pos(red={1: "a1"}, side=1, die=1)
     wrong_src = Move(piece=1, src=parse_sq("a5"), dst=parse_sq("b5"), die=1, captured=0)
@@ -183,7 +183,7 @@ def test_alive_cache_never_drifts():
 
 
 def test_canonical_normalizes_perspective():
-    from einstein.state import rot180
+    from einstein_go.state import rot180
 
     pos = initial_position()
     assert canonical(pos, 1) is pos                     # 红方视角：原样

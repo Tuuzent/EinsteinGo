@@ -1,13 +1,13 @@
 @echo off
 setlocal
-title Einstein Chess GUI
+title EinsteinGo
 cd /d "%~dp0"
 
 chcp 65001 >nul
 set "PYTHONIOENCODING=utf-8"
 set "PYTHONUNBUFFERED=1"
 
-echo [einstein] locating a Python interpreter with tkinter ...
+echo [EinsteinGo] locating a Python interpreter with tkinter ...
 
 rem This file is intentionally ASCII-only. Non-ASCII bytes in a .bat get parsed
 rem with the OEM codepage and can be turned into bogus commands.
@@ -24,23 +24,23 @@ for %%P in ("py -3" "py -3.13" "python" "python3") do (
 
 if not defined PYEXE goto :no_tk
 
-echo [einstein] interpreter : %PYEXE%
-echo [einstein] launching GUI ...
+echo [EinsteinGo] interpreter : %PYEXE%
+echo [EinsteinGo] launching GUI ...
 echo.
 
 %PYEXE% run_ui.py
 set "RC=%ERRORLEVEL%"
 
 echo.
-echo [einstein] exit code %RC%
-if not "%RC%"=="0" echo [einstein] GUI exited abnormally, see messages above.
+echo [EinsteinGo] exit code %RC%
+if not "%RC%"=="0" echo [EinsteinGo] GUI exited abnormally, see messages above.
 pause
 exit /b %RC%
 
 :no_tk
 echo.
-echo [einstein] ERROR: no Python interpreter with tkinter was found.
-echo [einstein] tried: py -3, py -3.13, python, python3
+echo [EinsteinGo] ERROR: no Python interpreter with tkinter was found.
+echo [EinsteinGo] tried: py -3, py -3.13, python, python3
 echo.
 echo How to fix:
 echo   1. Install the official build from https://www.python.org/downloads/windows/

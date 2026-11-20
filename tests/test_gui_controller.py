@@ -6,15 +6,15 @@ import time
 
 import pytest
 
-from einstein.clock import FakeTime
-from einstein.constants import BLUE, NEIGHBORS, RED, parse_sq, sq_name
-from einstein.gui.controller import GameController
-from einstein.gui.model import GameSetup, Mode, Phase
-from einstein.gui.thinker import HeuristicThinker
-from einstein.movegen import generate_moves, resolve_candidates
-from einstein.outcome import GameResult, TerminalReason
-from einstein.protocol import read_jsonl
-from einstein.sync import replay
+from einstein_go.clock import FakeTime
+from einstein_go.constants import BLUE, NEIGHBORS, RED, parse_sq, sq_name
+from einstein_go.gui.controller import GameController
+from einstein_go.gui.model import GameSetup, Mode, Phase
+from einstein_go.gui.thinker import HeuristicThinker
+from einstein_go.movegen import generate_moves, resolve_candidates
+from einstein_go.outcome import GameResult, TerminalReason
+from einstein_go.protocol import read_jsonl
+from einstein_go.sync import replay
 
 
 # ---------------------------------------------------------------- 工具

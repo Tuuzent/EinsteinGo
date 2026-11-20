@@ -4,9 +4,9 @@ from __future__ import annotations
 
 import pytest
 
-from einstein.constants import parse_sq
-from einstein.errors import EngineError, ErrorCode
-from einstein.gui.errors_view import (
+from einstein_go.constants import parse_sq
+from einstein_go.errors import EngineError, ErrorCode
+from einstein_go.gui.errors_view import (
     CODE_LAYER,
     ERROR_TEXT,
     LAYERS,
@@ -18,9 +18,9 @@ from einstein.gui.errors_view import (
     report_to_view,
     result_view,
 )
-from einstein.outcome import GameResult, TerminalReason
-from einstein.state import GameState, initial_position
-from einstein.sync import SyncMode, apply_remote_move
+from einstein_go.outcome import GameResult, TerminalReason
+from einstein_go.state import GameState, initial_position
+from einstein_go.sync import SyncMode, apply_remote_move
 
 
 def gs(die: int = 3) -> GameState:

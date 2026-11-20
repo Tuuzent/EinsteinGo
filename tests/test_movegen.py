@@ -4,10 +4,10 @@ from __future__ import annotations
 
 import pytest
 
-from einstein.constants import CORNER, idx, parse_sq, sq_name
-from einstein.errors import EngineError, ErrorCode
-from einstein.movegen import generate_moves, has_any_move, resolve_candidates
-from einstein.state import initial_position
+from einstein_go.constants import CORNER, idx, parse_sq, sq_name
+from einstein_go.errors import EngineError, ErrorCode
+from einstein_go.movegen import generate_moves, has_any_move, resolve_candidates
+from einstein_go.state import initial_position
 from helpers import build_pos, random_positions
 
 

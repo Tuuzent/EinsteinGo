@@ -14,13 +14,13 @@ from pathlib import Path
 if __package__ in (None, ""):  # 允许直接 python scripts/demo_game.py
     sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
-from einstein.board import render_squares
-from einstein.clock import RealTime
-from einstein.constants import RED
-from einstein.errors import EngineError
-from einstein.players import make_player
-from einstein.session import GameSession
-from einstein.sync import replay, verify_state_equal
+from einstein_go.board import render_squares
+from einstein_go.clock import RealTime
+from einstein_go.constants import RED
+from einstein_go.errors import EngineError
+from einstein_go.players import make_player
+from einstein_go.session import GameSession
+from einstein_go.sync import replay, verify_state_equal
 
 
 def main(seed: int = 7, nodes: int | None = 800, think_ms: int | None = None,
@@ -72,7 +72,7 @@ def main(seed: int = 7, nodes: int | None = 800, think_ms: int | None = None,
     out = Path(__file__).resolve().parent.parent / "output"
     out.mkdir(exist_ok=True)
     path = out / f"demo_seed{seed}.jsonl"
-    from einstein.protocol import write_jsonl
+    from einstein_go.protocol import write_jsonl
 
     write_jsonl(path, rows)
     print(f"棋谱已写入 {path}")

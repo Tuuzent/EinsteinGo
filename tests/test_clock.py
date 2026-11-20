@@ -4,12 +4,12 @@ from __future__ import annotations
 
 import pytest
 
-from einstein.clock import Clock, FakeTime, TimeBank, VirtualTime
-from einstein.constants import BLUE, RED
-from einstein.errors import EngineError, ErrorCode
-from einstein.movegen import generate_moves
-from einstein.outcome import TerminalReason
-from einstein.session import GameSession
+from einstein_go.clock import Clock, FakeTime, TimeBank, VirtualTime
+from einstein_go.constants import BLUE, RED
+from einstein_go.errors import EngineError, ErrorCode
+from einstein_go.movegen import generate_moves
+from einstein_go.outcome import TerminalReason
+from einstein_go.session import GameSession
 
 
 def test_deduct_on_stop_turn():

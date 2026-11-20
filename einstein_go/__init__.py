@@ -1,4 +1,4 @@
-"""爱恩斯坦棋（Einstein würfelt nicht）博弈引擎公共 API。
+"""EinsteinGo · 爱恩斯坦棋（Einstein würfelt nicht）博弈引擎公共 API。
 
 五个职责与所在模块：
     ① 棋盘状态      state.Position / state.GameState

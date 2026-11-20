@@ -36,8 +36,8 @@ def enable_dpi_awareness() -> None:
 
 def _self_test() -> int:
     """不需要 tkinter：验证引擎 + 控制器链路是否正常。"""
-    from einstein.gui.controller import GameController
-    from einstein.gui.model import GameSetup
+    from einstein_go.gui.controller import GameController
+    from einstein_go.gui.model import GameSetup
 
     ctl = GameController(GameSetup(seed=7), async_think=False)
     ctl.new_game()
@@ -57,7 +57,7 @@ def main(argv: list[str] | None = None) -> int:
     try:
         import tkinter  # noqa: F401
     except ImportError:
-        print("[einstein] 当前解释器没有 tkinter，无法打开桌面界面：")
+        print("[EinsteinGo] 当前解释器没有 tkinter，无法打开桌面界面：")
         print("          ", sys.executable)
         print("           请安装 python.org 官方版本并勾选『tcl/tk and IDLE』，")
         print("           或直接双击 start_ui.bat（它会自动挑选合适的解释器）。")
@@ -67,7 +67,7 @@ def main(argv: list[str] | None = None) -> int:
     # MCTS 是纯 Python 计算，会长时间持 GIL；缩短切换间隔让界面更跟手（代价约 3–5%）
     sys.setswitchinterval(0.002)
 
-    from einstein.gui.view.app import App
+    from einstein_go.gui.view.app import App
 
     app = App()
     # 自动化冒烟用：例如 EINSTEIN_UI_AUTOCLOSE_MS=4000 让窗口 4 秒后自己关掉
@@ -98,7 +98,7 @@ if __name__ == "__main__":
         try:
             import tkinter.messagebox as mb
 
-            mb.showerror("Einstein Chess", "启动失败，详见控制台。")
+            mb.showerror("EinsteinGo", "启动失败，详见控制台。")
         except Exception:
             pass
         sys.exit(1)

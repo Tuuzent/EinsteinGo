@@ -28,8 +28,8 @@ def main() -> int:
         print("SKIP: 当前解释器没有 tkinter")
         return 0
 
-    from einstein.constants import parse_sq
-    from einstein.gui.view.app import App
+    from einstein_go.constants import parse_sq
+    from einstein_go.gui.view.app import App
 
     try:
         app = App()

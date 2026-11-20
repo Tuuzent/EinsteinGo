@@ -4,7 +4,7 @@ from __future__ import annotations
 
 import math
 
-from einstein.ai.eval import (
+from einstein_go.ai.eval import (
     best_heuristic_move,
     evaluate,
     evaluate_expected,
@@ -12,11 +12,11 @@ from einstein.ai.eval import (
     opponent_win_prob,
     win_in_one,
 )
-from einstein.ai import features as F
-from einstein.config import DEFAULT_WEIGHTS
-from einstein.constants import BLUE, RED, parse_sq, sq_name
-from einstein.movegen import generate_moves
-from einstein.state import initial_position, rot180
+from einstein_go.ai import features as F
+from einstein_go.config import DEFAULT_WEIGHTS
+from einstein_go.constants import BLUE, RED, parse_sq, sq_name
+from einstein_go.movegen import generate_moves
+from einstein_go.state import initial_position, rot180
 from helpers import build_pos, random_positions
 
 

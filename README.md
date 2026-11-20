@@ -1,4 +1,4 @@
-# 爱恩斯坦棋（Einstein würfelt nicht）博弈引擎
+# EinsteinGo · 爱恩斯坦棋（Einstein würfelt nicht）博弈引擎
 
 纯 Python 3 标准库实现，零第三方依赖。支持**桌面界面（双击 `start_ui.bat` 即开）**、
 命令行对局、自对弈基准，以及
@@ -9,9 +9,9 @@
 start_ui.bat                           # ★ 双击：打开桌面界面（人机对弈 / 比赛模式）
 python run_ui.py                       # 同上，命令行启动
 python run_demo.py                     # 一局完整演示（含哈希链校验）
-python -m einstein.cli remote          # 比赛模式：复制对方走法 + 我方算法应对
-python -m einstein.cli play --red human --blue mcts
-python -m einstein.cli match --a mcts --b heuristic
+python -m einstein_go.cli remote          # 比赛模式：复制对方走法 + 我方算法应对
+python -m einstein_go.cli play --red human --blue mcts
+python -m einstein_go.cli match --a mcts --b heuristic
 python -m pytest                       # 259 个用例，约 10 秒
 python scripts/bench_matrix.py --games 20 --nodes 300
 ```
@@ -77,10 +77,10 @@ python scripts/bench_matrix.py --games 20 --nodes 300
 ## 二、目录结构
 
 ```
-einstein_chess/
+EinsteinGo/
 ├── run_demo.py                  一键演示
 ├── pytest.ini                   默认跳过 slow 用例
-├── einstein/
+├── einstein_go/
 │   ├── constants.py             坐标/方向/出发区/角点/编码辅助/预计算邻接表
 │   ├── errors.py                16 个错误码 + 异常类型（含"谁在何时抛"的注释）
 │   ├── zobrist.py               固定种子哈希表（跨进程可复现）
@@ -244,7 +244,7 @@ if not report.ok:
 ### 运行示例
 
 ```
-$ python -m einstein.cli remote --nodes 300
+$ python -m einstein_go.cli remote --nodes 300
 比赛模式演示  我方=蓝(B)(MCTS, nodes=300)  对方=红(R)(启发式)  种子=7
 开局一致性 ✓  开局 zhash=fc88c1cc6f8739b7
 
@@ -315,7 +315,7 @@ python run_demo.py --seed 7 --nodes 800
 
 逐步打印棋盘 / 骰值 / 走法 / 状态哈希 / 哈希链前缀，最后从棋谱重放整局并断言
 `zhash` 与 `chain_hash` 逐字节一致，输出 `HASH CHAIN OK`。棋谱写入 `output/demo_seed7.jsonl`，
-可用 `python -m einstein.cli replay output/demo_seed7.jsonl` 复看。
+可用 `python -m einstein_go.cli replay output/demo_seed7.jsonl` 复看。
 
 ---
 
@@ -323,22 +323,22 @@ python run_demo.py --seed 7 --nodes 800
 
 ```
 # 双人热座（两个人类）
-python -m einstein.cli play --red human --blue human
+python -m einstein_go.cli play --red human --blue human
 
 # 人机：机器在蓝方，每步最多 3 秒
-python -m einstein.cli play --red human --blue mcts
+python -m einstein_go.cli play --red human --blue mcts
 
 # 机机（快速实验用节点上限代替时间）
-python -m einstein.cli play --red mcts --blue heuristic --nodes 800
+python -m einstein_go.cli play --red mcts --blue heuristic --nodes 800
 
 # 7 盘 4 胜
-python -m einstein.cli match --a mcts --b heuristic --games 7
+python -m einstein_go.cli match --a mcts --b heuristic --games 7
 
 # 比赛模式：对方走子 → 复制校验 → 我方应对（两侧独立棋盘，逐手断言一致）
-python -m einstein.cli remote --nodes 800 -v
+python -m einstein_go.cli remote --nodes 800 -v
 
 # 重放棋谱并校验哈希链
-python -m einstein.cli replay output/demo_seed7.jsonl -v
+python -m einstein_go.cli replay output/demo_seed7.jsonl -v
 ```
 
 交互提示下输入走法如 `3c1-d2` 或 `3c1d2`（可带 `@骰值`）。命令：`h` 帮助、`b` 重绘、
@@ -366,9 +366,9 @@ python -m einstein.cli replay output/demo_seed7.jsonl -v
 关掉窗口后控制台保留输出并 `pause`，方便回看。
 
 ```
-[einstein] locating a Python interpreter with tkinter ...
-[einstein] interpreter : py -3
-[einstein] launching GUI ...
+[EinsteinGo] locating a Python interpreter with tkinter ...
+[EinsteinGo] interpreter : py -3
+[EinsteinGo] launching GUI ...
 [00:06:52] info  新局 · 人机对弈 · 我方执红 · 难度普通 · seed=633429
 ```
 
